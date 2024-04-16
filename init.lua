@@ -92,6 +92,7 @@ vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed
 vim.g.have_nerd_font = true
+vim.o.termguicolors = true
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
@@ -332,7 +333,19 @@ require('lazy').setup({
     'folke/which-key.nvim',
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
     config = function() -- This is the function that runs, AFTER loading
-      require('which-key').setup()
+      require('which-key').setup {
+        icons = {
+          breadcrumb = '»', -- symbol used in the command line area that shows your active key combo
+          separator = '', -- symbol used between a key and it's label
+          group = '+', -- symbol prepended to a group
+        },
+        layout = {
+          height = { min = 4, max = 25 }, -- min and max height of the columns
+          width = { min = 20, max = 50 }, -- min and max width of the columns
+          spacing = 4, -- spacing between columns
+          align = 'center', -- align columns left, center or right
+        },
+      }
 
       -- Document existing key chains
       require('which-key').register {
