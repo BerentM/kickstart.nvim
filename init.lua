@@ -191,9 +191,6 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
--- custom keybinds
-vim.keymap.set('n', '<leader>w', '<CMD>w<CR>', { desc = 'Save current buffer' })
-
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -930,6 +927,11 @@ require('lazy').setup({
     },
   },
 })
+
+-- Custom keybinds
+vim.keymap.set('n', '<leader>w', '<CMD>w<CR>', { desc = 'Save current buffer' })
+vim.keymap.set('n', '<leader>Q', '<CMD>wq<CR>', { desc = 'Quit and save current buffer' })
+vim.keymap.set('n', '<leader>q', '<CMD>q<CR>', { desc = 'Quit current buffer' })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
